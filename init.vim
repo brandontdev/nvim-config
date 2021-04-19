@@ -22,7 +22,7 @@ Plug 'terryma/vim-multiple-cursors'
 "Git icons
 Plug 'airblade/vim-gitgutter'
 "Auto-Complete
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+"Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 "Initialize plugin system"
 call plug#end()
