@@ -16,6 +16,20 @@ endif
 
 let g:airline_theme='onedark' " <theme> is a valid theme name
 
+function! IsEmpty()
+    return (line('$') == 1 && getline(1) == '')
+endfunction
+
+" Enter NERDTree automatically if vim is started without a file argument
+function! CheckProject()
+    if IsEmpty() && expand('%:p') == ''
+        NERDTree
+        let &titlestring = 'nvim ' . system('basename "' . system('pwd') . '"')
+        set title
+    endif
+endfunction
+autocmd VimEnter * call CheckProject()
+
 "Window-splitting and movment 
 "It is using vim keys (for sure): j - down / k - up / ...
 "Quick example:
