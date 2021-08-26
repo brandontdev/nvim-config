@@ -58,14 +58,14 @@ filetype plugin indent on
 packloadall
 colorscheme onedark
 
-:set number
-:set relativenumber
-:set cursorline
-:set cursorcolumn
-:set wildmenu
-:set showmatch
-:set ruler
-:set showcmd
+set number
+set relativenumber
+set cursorline
+set cursorcolumn
+set wildmenu
+set showmatch
+set ruler
+set showcmd
 
 " Set internal encoding of vim, not needed on neovim, since coc.nvim using some
 " unicode characters in the file autoload/float.vim
