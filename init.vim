@@ -1,3 +1,9 @@
+" I manually install neovim plugins by cloning thier git repos 
+" to ~/.local/share/nvim/site/pack/local/start
+" This is why there are no references to my plugins or a plugin 
+" manager in this location.
+
+
 "Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
 "If you're using tmux version 2.2 or later, you can remove the outermost $TMUX check and use tmux's 24-bit color support
 "(see < http://sunaku.github.io/tmux-24bit-color.html#usage > for more information.)
@@ -14,13 +20,15 @@ if (empty($TMUX))
   endif
 endif
 
+" Set the airline theme. These are located in the same dir as 
+" my plugins, referenced on line 2.
 let g:airline_theme='onedark' " <theme> is a valid theme name
 
 function! IsEmpty()
     return (line('$') == 1 && getline(1) == '')
 endfunction
 
-" Enter NERDTree automatically if vim is started without a file argument
+" Enter NERDTree automatically if neovim is started without a file argument
 function! CheckProject()
     if IsEmpty() && expand('%:p') == ''
         NERDTree
@@ -58,14 +66,20 @@ filetype plugin indent on
 packloadall
 colorscheme onedark
 
+" Current line #
 set number
+" Lines are #'d relative to current line.
 set relativenumber
+" Highlight both current line and column
 set cursorline
 set cursorcolumn
 set wildmenu
 set showmatch
 set ruler
 set showcmd
+
+" Allow copying to system clipboard with 'p'
+set clipboard=unnamed
 
 " Set internal encoding of vim, not needed on neovim, since coc.nvim using some
 " unicode characters in the file autoload/float.vim
